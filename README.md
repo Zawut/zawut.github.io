@@ -35,14 +35,6 @@ Zawut CheatSheet es una plataforma web que ofrece **hojas de referencia rápida*
 - 🆓 **Completamente gratuito** - Sin costos, sin registros
 - 🏷️ **Código bien documentado** - Ejemplos claros y explicados
 
-## 🚀 Próximamente
-
-- Python y JavaScript
-- Frameworks populares (Spring, React, etc.)
-- Snippets de código descargables
-- Modo oscuro/claro
-- Docker y DevOps
-
 ## 🤝 Contribuir
 
 ¿Tienes sugerencias o quieres agregar algún cheatsheet?  
