@@ -1,0 +1,21 @@
+{
+  "name": "zawut",
+  "version": "1.0.0",
+  "description": "- 🌱 I’m currently learning JAVA\r - 👯 I’m looking to collaborate on Android Projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zawut/zawut.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/zawut/zawut/issues"
+  },
+  "homepage": "https://github.com/zawut/zawut#readme"
+}
