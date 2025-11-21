@@ -1,271 +1,350 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Java CheatSheet</title>
-    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Zawut CheatSheet — Referencia rápida para desarrollo</title>
+    <meta name="description"
+        content="Zawut CheatSheet: tu centro de referencia rápida para desarrollo y programación. Hojas de consulta, sintaxis y mejores prácticas." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="assets/img/profile-logo.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet" />
 </head>
+
 <body>
-    <header>
-        <h1>Java CheatSheet</h1>
-        <p class="subtitle">Referencia rapida para desarrolladores Java</p>
-    </header>
-    
-    <div class="nav-container">
-        <div class="nav-scroll">
-            <a href="#variables" class="nav-item active">
-                <i class="fas fa-code"></i>
-                <span>Variables</span>
+    <!-- Header -->
+    <header aria-label="Barra superior">
+        <div class="container header-inner">
+            <a class="brand" href="https://zawut.github.io/" aria-label="Inicio">
+                <div class="brand-logo" aria-hidden="true">
+                    <img src="assets/img/profile-logo.png" alt="Zawut CheatSheet Logo" width="30'" height="30" />
+                </div>
+
+                <div class="brand-title">
+                    <strong>Zawut CheatSheet 🚀</strong>
+                    <span>Tu centro de referencia rápida</span>
+                </div>
             </a>
-            <a href="#operators" class="nav-item">
-                <i class="fas fa-calculator"></i>
-                <span>Operadores</span>
-            </a>
-            <a href="#conditionals" class="nav-item">
-                <i class="fas fa-code-branch"></i>
-                <span>Condicionales</span>
-            </a>
-            <a href="#loops" class="nav-item">
-                <i class="fas fa-redo"></i>
-                <span>Bucles</span>
-            </a>
-            <a href="#arrays" class="nav-item">
-                <i class="fas fa-layer-group"></i>
-                <span>Arrays</span>
-            </a>
-            <a href="#io" class="nav-item">
-                <i class="fas fa-keyboard"></i>
-                <span>Entrada/Salida</span>
-            </a>
-            <a href="#random" class="nav-item">
-                <i class="fas fa-dice"></i>
-                <span>Math.random</span>
-            </a>
+
+            <label class="search" aria-label="Buscar en cheatsheets">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7" stroke="#9aa6bd" stroke-width="2" />
+                    <path d="M21 21l-3.5-3.5" stroke="#9aa6bd" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                <input type="search" name="q" placeholder="Buscar lenguajes, categorias, descripciones…" autocomplete="off" />
+                <span class="kbd">ALT + K</span>
+            </label>
+
+            <div class="actions">
+                <a class="btn" href="https://github.com/Zawut/zawut.github.io/blob/main/README.md" target="_blank"
+                    aria-label="Documentación">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M6 4h9l3 3v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z" stroke="#9aa6bd"
+                            stroke-width="1.6" />
+                        <path d="M9 8h6M9 12h6M9 16h4" stroke="#9aa6bd" stroke-width="1.6" stroke-linecap="round" />
+                    </svg>
+                    Docs
+                </a>
+                <a class="btn btn-primary" href="https://github.com/Zawut/zawut.github.io" target="_blank"
+                    aria-label="Repositorio en GitHub">
+                    <!-- Icono de GitHub en blanco -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
+                        <path
+                            d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.6 2.1 3.6 1.5v-2c-2.6-.3-5.3-1.3-5.3-5.9 0-1.3.5-2.4 1.2-3.3-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.3 5.9v2c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z" />
+                    </svg>
+                </a>
+            </div>
         </div>
-    </div>
-    
-    <main class="main-content">
-        <section id="variables" class="section">
-            <div class="section-header">
-                <span class="section-icon"><i class="fas fa-code"></i></span>
-                <h2 class="section-title">VARIABLES Y TIPOS DE DATOS</h2>
-            </div>
-            
-            <div class="code-block">
-                <span class="keyword">int</span>   <span class="comment">// NUMERO ENTERO</span><br>
-                <span class="keyword">float</span>  <span class="comment">// DECIMAL SIMPLE</span><br>
-                <span class="keyword">double</span> <span class="comment">// DECIMAL PRECISO</span><br>
-                <span class="keyword">char</span>   <span class="comment">// UN SOLO CARACTER</span><br>
-                <span class="keyword">boolean</span> <span class="comment">// VERDADERO O FALSO</span><br>
-                <span class="type">String</span>  <span class="comment">// CADENA DE TEXTO</span>
-            </div>
-        </section>
-        
-        <section id="operators" class="section">
-            <div class="section-header">
-                <span class="section-icon"><i class="fas fa-calculator"></i></span>
-                <h2 class="section-title">OPERADORES</h2>
-            </div>
-            
-            <h3>ARITMETICOS</h3>
-            <div class="code-block">
-                a <span class="operator">+</span> b    <span class="comment">// suma</span><br>
-                a <span class="operator">-</span> b    <span class="comment">// resta</span><br>
-                a <span class="operator">*</span> b    <span class="comment">// multiplicacion</span><br>
-                a <span class="operator">/</span> b    <span class="comment">// division</span><br>
-                a <span class="operator">%</span> b    <span class="comment">// resto</span>
-            </div>
-            
-            <h3>RELACIONALES</h3>
-            <div class="code-block">
-                a <span class="operator">==</span> b   <span class="comment">// igual</span><br>
-                a <span class="operator">!=</span> b   <span class="comment">// diferente</span><br>
-                a <span class="operator">&gt;</span> b    <span class="comment">// mayor</span><br>
-                a <span class="operator">&lt;</span> b    <span class="comment">// menor</span><br>
-                a <span class="operator">&gt;=</span> b   <span class="comment">// mayor o igual</span><br>
-                a <span class="operator">&lt;=</span> b   <span class="comment">// menor o igual</span>
-            </div>
-            
-            <h3>LOGICOS</h3>
-            <div class="code-block">
-                a <span class="operator">&&</span> b   <span class="comment">// AND (y)</span><br>
-                a <span class="operator">||</span> b   <span class="comment">// OR (o)</span><br>
-                <span class="operator">!</span>a       <span class="comment">// NOT (no)</span>
-            </div>
-            
-            <h3>ASIGNACION</h3>
-            <div class="code-block">
-                a <span class="operator">+=</span> b   <span class="comment">// a = a + b</span><br>
-                a <span class="operator">-=</span> b   <span class="comment">// a = a - b</span><br>
-                a <span class="operator">*=</span> b   <span class="comment">// a = a * b</span><br>
-                a <span class="operator">/=</span> b   <span class="comment">// a = a / b</span>
-            </div>
-            
-            <h3>INCREMENTO/DECREMENTO</h3>
-            <div class="code-block">
-                a<span class="operator">++</span>      <span class="comment">// INCREMENTO</span><br>
-                a<span class="operator">--</span>      <span class="comment">// DECREMENTO</span>
-            </div>
-        </section>
-        
-        <section id="conditionals" class="section">
-            <div class="section-header">
-                <span class="section-icon"><i class="fas fa-code-branch"></i></span>
-                <h2 class="section-title">ESTRUCTURAS CONDICIONALES</h2>
-            </div>
-            
-            <div class="code-block">
-                <span class="keyword">if</span> (<span class="type">condicion1</span>) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// CODIGO SI CONDICION1</span><br>
-                } <span class="keyword">else if</span> (<span class="type">condicion2</span>) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// CODIGO SI CONDICION2</span><br>
-                } <span class="keyword">else</span> {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// CODIGO SI NINGUNA</span><br>
-                }
-            </div>
-            
-            <div class="code-block">
-                <span class="keyword">switch</span> (<span class="type">variable</span>) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">case</span> <span class="type">valor1</span>:<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// CODIGO</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">break</span>;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">case</span> <span class="type">valor2</span>:<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// CODIGO</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">break</span>;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">default</span>:<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// CODIGO POR DEFECTO</span><br>
-                }
-            </div>
-        </section>
-        
-        <section id="loops" class="section">
-            <div class="section-header">
-                <span class="section-icon"><i class="fas fa-redo"></i></span>
-                <h2 class="section-title">ESTRUCTURAS REPETITIVAS (Bucles)</h2>
-            </div>
-            
-            <div class="code-block">
-                <span class="keyword">for</span> (<span class="type">inicio</span>; <span class="type">condicion</span>; <span class="type">incremento</span>) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// codigo que se repite</span><br>
-                }
-            </div>
-            
-            <div class="example">
-                <div class="example-title">Ejemplo:</div>
-                <div class="code-block">
-                    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i<span class="operator">++</span>) {<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"Numero: "</span> + i);<br>
-                    }
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-card">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="emoji" aria-hidden="true">📝</span>
+                        Zawut CheatSheet
+                    </h1>
+                    <p class="hero-sub">
+                        Tu centro de referencia rápida para desarrollo y programación.
+                    </p>
+
+                    <!-- Features resumidas -->
+                    <div class="hero-cta">
+                        <span class="tag">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <circle cx="11" cy="11" r="7" stroke="#9aa6bd" stroke-width="1.6" />
+                                <path d="M21 21l-3.5-3.5" stroke="#9aa6bd" stroke-width="1.6" stroke-linecap="round" />
+                            </svg>
+                            Búsqueda rápida
+                        </span>
+                        <span class="tag">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <rect x="3" y="5" width="18" height="14" rx="3" stroke="#9aa6bd" stroke-width="1.6" />
+                                <path d="M12 19v3M8 22h8" stroke="#9aa6bd" stroke-width="1.6" stroke-linecap="round" />
+                            </svg>
+                            Diseño responsive
+                        </span>
+                        <span class="tag">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M5 12h14M12 5v14" stroke="#9aa6bd" stroke-width="1.6" stroke-linecap="round" />
+                            </svg>
+                            Actualizaciones constantes
+                        </span>
+                        <span class="tag">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M6 10h12M6 14h10" stroke="#9aa6bd" stroke-width="1.6" stroke-linecap="round" />
+                                <path d="M18 6H6a2 2 0 0 0-2 2v12l4-3h10a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2z"
+                                    stroke="#9aa6bd" stroke-width="1.6" />
+                            </svg>
+                            Completamente gratuito
+                        </span>
+                        <span class="tag">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M6 5h8l4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" stroke="#9aa6bd"
+                                    stroke-width="1.6" />
+                                <path d="M8 10h8M8 14h6" stroke="#9aa6bd" stroke-width="1.6" stroke-linecap="round" />
+                            </svg>
+                            Código documentado
+                        </span>
+                    </div>
                 </div>
             </div>
-            
-            <div class="code-block">
-                <span class="keyword">while</span> (<span class="type">condicion</span>) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// codigo que se repite</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// incremento</span><br>
-                }
+        </div>
+    </section>
+
+
+    <!-- Tecnologías -->
+    <section class="section">
+        <div class="container">
+            <h2>Tecnologías disponibles</h2>
+            <div class="grid cols-3">
+                <!-- JAVA -->
+                <a href="library/java.html" class="card">
+                    <div class="card-head">
+                        <div class="icon" aria-hidden="true">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <rect x="6" y="2" width="12" height="20" rx="3" stroke="#9a80ff" stroke-width="1.6" />
+                                <circle cx="12" cy="19" r="1" fill="#9a80ff" />
+                            </svg>
+                        </div>
+                        <div class="card-title">JAVA</div>
+                    </div>
+                    <p class="card-desc">Programación orientada a objetos, Spring Boot, patrones de diseño y desarrollo
+                        backend.</p>
+                    <div class="chip-row">
+                        <span class="chip">POO</span>
+                        <span class="chip">Spring</span>
+                        <span class="chip">Backend</span>
+                    </div>
+                </a>
+
+                <!-- SQL -->
+                <a href="library/sql.html" class="card">
+                    <div class="card-head">
+                        <div class="icon" aria-hidden="true">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <ellipse cx="12" cy="6" rx="8" ry="3.5" stroke="#9a80ff" stroke-width="1.6" />
+                                <path d="M4 6v8c0 1.9 3.6 3.5 8 3.5s8-1.6 8-3.5V6" stroke="#9a80ff"
+                                    stroke-width="1.6" />
+                            </svg>
+                        </div>
+                        <div class="card-title">SQL</div>
+                    </div>
+                    <p class="card-desc">Consultas, joins, funciones, procedimientos almacenados y optimización de bases
+                        de datos.</p>
+                    <div class="chip-row">
+                        <span class="chip">SELECT</span>
+                        <span class="chip">JOIN</span>
+                        <span class="chip">Índices</span>
+                    </div>
+                </a>
+
+                <!-- LENGUAJE DE MARCAS -->
+                <a href="library/lenguaje-marcas.html" class="card">
+                    <div class="card-head">
+                        <div class="icon" aria-hidden="true">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 7h14M5 12h14M5 17h10" stroke="#9a80ff" stroke-width="1.6"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <div class="card-title">Lenguaje de Marcas</div>
+                    </div>
+                    <p class="card-desc">HTML, CSS, XML. Estructura semántica, estilos, validación y mejores prácticas
+                        de marcado.</p>
+                    <div class="chip-row">
+                        <span class="chip">HTML</span>
+                        <span class="chip">CSS</span>
+                        <span class="chip">XML</span>
+                    </div>
+                </a>
+
+                <!-- GIT Y GITHUB -->
+                <a href="library/git-github.html" class="card">
+                    <div class="card-head">
+                        <div class="icon" aria-hidden="true">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M7 5a3 3 0 1 1 0 6M17 13a3 3 0 1 1 0 6" stroke="#9a80ff" stroke-width="1.6" />
+                                <path d="M10 8v8a4 4 0 0 0 4 4" stroke="#9a80ff" stroke-width="1.6"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <div class="card-title">Git y GitHub</div>
+                    </div>
+                    <p class="card-desc">Control de versiones, ramas, merges, pull requests, issues y GitHub Actions.
+                    </p>
+                    <div class="chip-row">
+                        <span class="chip">Ramas</span>
+                        <span class="chip">PRs</span>
+                        <span class="chip">Actions</span>
+                    </div>
+                </a>
+
+                <!-- KOTLIN -->
+                <a href="library/kotlin.html" class="card">
+                    <div class="card-head">
+                        <div class="icon" aria-hidden="true">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <rect x="3" y="4" width="18" height="12" rx="3" stroke="#9a80ff" stroke-width="1.6" />
+                                <path d="M7 8h10" stroke="#9a80ff" stroke-width="1.6" stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <div class="card-title">KOTLIN</div>
+                    </div>
+                    <p class="card-desc">Desarrollo Android moderno, corrutinas, extensiones y interoperabilidad con
+                        Java.</p>
+                    <div class="chip-row">
+                        <span class="chip">Android</span>
+                        <span class="chip">Corrutinas</span>
+                        <span class="chip">Moderno</span>
+                    </div>
+                </a>
+
+                <!-- JAVASCRIPT -->
+                <a href="library/javascript.html" class="card">
+                    <div class="card-head">
+                        <div class="icon" aria-hidden="true">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <rect x="3" y="3" width="18" height="18" rx="4" stroke="#9a80ff" stroke-width="1.6" />
+                                <path
+                                    d="M9 16v-6M15 16c1.5 0 2.5-.8 2.5-2 0-1-1-1.6-2.2-1.9-1.1-.3-1.8-.8-1.8-1.7S14.3 8 15.5 8c.7 0 1.3.2 2 .5"
+                                    stroke="#9a80ff" stroke-width="1.6" stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <div class="card-title">JavaScript</div>
+                    </div>
+                    <p class="card-desc">Fundamentos, DOM, ES6+, async/await, patrones y buenas prácticas modernas.</p>
+                    <div class="chip-row">
+                        <span class="chip">ES6+</span>
+                        <span class="chip">DOM</span>
+                        <span class="chip">Async</span>
+                    </div>
+                </a>
             </div>
 
-            <div class="code-block">
-                <span class="keyword">do</span> {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// codigo que se ejecuta al menos una vez</span><br>
-                } <span class="keyword">while</span> (<span class="type">condicion</span>);
+            <!-- Mensaje cuando no hay resultados -->
+            <div class="no-results" id="noResults">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7" stroke="#9aa6bd" stroke-width="1.6" />
+                    <path d="M21 21l-3.5-3.5" stroke="#9aa6bd" stroke-width="1.6" stroke-linecap="round" />
+                </svg>
+                <h3>No se encontraron resultados</h3>
+                <p>Intenta con otros términos de búsqueda</p>
             </div>
-            
-            <div class="example">
-                <div class="example-title">Ejemplo:</div>
-                <div class="code-block">
-                    <span class="keyword">int</span> numero;<br>
-                    <span class="keyword">do</span> {<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;System.out.print(<span class="string">"Introduce un numero positivo: "</span>);<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;numero = scanner.nextInt();<br>
-                    } <span class="keyword">while</span> (numero &lt;= <span class="number">0</span>);
-                </div>
-            </div>
-        </section>
-        
-        <section id="arrays" class="section">
-            <div class="section-header">
-                <span class="section-icon"><i class="fas fa-layer-group"></i></span>
-                <h2 class="section-title">ARRAYS</h2>
-            </div>
-            
-            <h3>ARRAY SIMPLE</h3>
-            <div class="code-block">
-                <span class="keyword">int</span>[] numeros = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>];<br>
-                numeros[<span class="number">0</span>] = <span class="number">10</span>;          <span class="comment">// PRIMERA POSICION</span>
-            </div>
-            
-            <h3>RECORRER</h3>
-            <div class="code-block">
-                <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numeros.length; i<span class="operator">++</span>) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;System.out.println(numeros[i]);<br>
-                }
-            </div>
-            
-            <h3>MATRIZ</h3>
-            <div class="code-block">
-                <span class="keyword">int</span>[][] tabla = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>][<span class="number">3</span>]; <br>
-                tabla[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;          <span class="comment">// FILA 0, COLUMNA 0</span>
-            </div>
-        </section>
-        
-        <section id="io" class="section">
-            <div class="section-header">
-                <span class="section-icon"><i class="fas fa-keyboard"></i></span>
-                <h2 class="section-title">ENTRADA/SALIDA</h2>
-            </div>
-            
-            <div class="code-block">
-                <span class="type">Scanner</span> sc = <span class="keyword">new</span> <span class="type">Scanner</span>(System.in);<br>
-                <span class="keyword">int</span> numero = sc.nextInt();         <span class="comment">// LEER NUMERO</span><br>
-                <span class="type">String</span> texto = sc.nextLine();      <span class="comment">// LEER TEXTO</span><br><br>
-                System.out.println(<span class="string">"Hola"</span>);        <span class="comment">// IMPRIMIR CON SALTO</span><br>
-                System.out.print(<span class="string">"Mundo"</span>);         <span class="comment">// IMPRIMIR SIN SALTO</span>
-            </div>
-        </section>
-        
-        <section id="random" class="section">
-            <div class="section-header">
-                <span class="section-icon"><i class="fas fa-dice"></i></span>
-                <h2 class="section-title">MATH.RANDOM</h2>
-            </div>
+        </div>
+    </section>
 
-            <div class="code-block">
-                <span class="type">Math</span>.random() <span class="comment">// NUMERO ALEATORIO ENTRE 0.0 y 1.0</span>
-            </div>
+    <!-- Contribuir -->
+    <section class="section">
+        <div class="container">
+            <h2>Contribuir</h2>
+            <div class="grid">
+                <article class="card">
+                    <div class="card-head">
+                        <div class="icon" aria-hidden="true">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2v6M12 16v6M2 12h6M16 12h6" stroke="#9a80ff" stroke-width="1.6"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <div class="card-title">¿Tienes sugerencias?</div>
+                    </div>
+                    <p class="card-desc">Abre un issue o envía un pull request. El conocimiento debe ser accesible para
+                        todos.</p>
+                    <div class="footer-actions">
+                        <a class="btn" href="https://github.com/Zawut/zawut.github.io/issues" target="_blank"
+                            aria-label="Abrir un issue">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z" stroke="#9aa6bd" stroke-width="1.6" />
+                                <path d="M12 8v5M12 17h.01" stroke="#9aa6bd" stroke-width="1.6"
+                                    stroke-linecap="round" />
+                            </svg>
+                            Issue
+                        </a>
+                        <a class="btn btn-primary" href="https://github.com/Zawut/zawut.github.io/pulls" target="_blank"
+                            aria-label="Enviar pull request">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <!-- Icono Pull Request estilizado -->
+                                <circle cx="7" cy="7" r="3" stroke="#ffffff" stroke-width="2" />
+                                <circle cx="17" cy="17" r="3" stroke="#ffffff" stroke-width="2" />
+                                <path d="M10 7v10a4 4 0 0 0 4 4" stroke="#ffffff" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                            Pull Request
+                        </a>
 
-            <div class="code-block">
-                <div>
-                    <span class="keyword">int</span> resultado = (<span class="keyword">int</span>)(<span class="type">Math</span>.random() * <span class="variable">RANGO</span>) + <span class="variable">INICIO</span>
-                </div>
+                    </div>
+                </article>
             </div>
+        </div>
+    </section>
 
-            <div class="example">
-                <div class="example-title">Ejemplos:</div>
-                <div class="code-block">
-                    <span class="comment">// NUMERO ENTRE 0 Y 9</span><br>
-                    <span class="keyword">int</span> num = (<span class="keyword">int</span>)(<span class="type">Math</span>.random() * <span class="number">10</span>);<br><br>
-                    
-                    <span class="comment">// NUMERO ENTRE 1 Y 6 (DADO)</span><br>
-                    <span class="keyword">int</span> dado = (<span class="keyword">int</span>)(<span class="type">Math</span>.random() * <span class="number">6</span>) + <span class="number">1</span>;<br><br>
-                    
-                    <span class="comment">// NUMERO ENTRE 10 Y 20</span><br>
-                    <span class="keyword">int</span> random = (<span class="keyword">int</span>)(<span class="type">Math</span>.random() * <span class="number">11</span>) + <span class="number">10</span>;<br><br>
-                    
-                    <span class="comment">// NUMERO ENTRE MIN Y MAX</span><br>
-                    <span class="keyword">int</span> random = (<span class="keyword">int</span>)(<span class="type">Math</span>.random() * (max - min + <span class="number">1</span>)) + min;
-                </div>
-            </div>
-        </section>
-    </main>
-    
+    <!-- Footer -->
     <footer>
-        <p>Java CheatSheet &copy; 2025 - Referencia rapida para desarrolladores</p>
+        <div class="container footer-inner">
+            <div class="footer-actions">
+                <!-- Perfil de GitHub -->
+                <a class="btn" href="https://github.com/Zawut" target="_blank" rel="noopener"
+                    aria-label="Perfil de GitHub">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#9aa6bd" aria-hidden="true">
+                        <path
+                            d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.6 2.1 3.6 1.5v-2c-2.6-.3-5.3-1.3-5.3-5.9 0-1.3.5-2.4 1.2-3.3-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.3 5.9v2c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z" />
+                    </svg>
+                    Zawut Dev
+                </a>
+
+                <!-- CheatSheets -->
+                <a class="btn" href="https://github.com/Zawut/zawut.github.io/tree/main/library" target="_blank"
+                    rel="noopener" aria-label="Ver cheatsheets">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M4 6h16M4 12h16M4 18h10" stroke="#9aa6bd" stroke-width="1.8" stroke-linecap="round" />
+                    </svg>
+                    CheatSheets
+                </a>
+
+                <!-- Licencia -->
+                <a class="btn" href="https://github.com/Zawut/zawut.github.io/blob/main/LICENSE" target="_blank"
+                    rel="noopener" aria-label="Licencia">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M6 5h8l4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" stroke="#9aa6bd"
+                            stroke-width="1.8" />
+                        <path d="M8 10h8M8 14h6" stroke="#9aa6bd" stroke-width="1.8" stroke-linecap="round" />
+                    </svg>
+                    Licencia
+                </a>
+            </div>
+
+            <div class="mono">© Zawut CheatSheet — Hecho para devs que no quieren tonterías.</div>
+        </div>
     </footer>
     <script src="assets/js/script.js"></script>
 </body>
+
 </html>
