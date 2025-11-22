@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Git & GitHub Zawut CheatSheet</title>
+    <meta name="description" content="Git & GitHub CheatSheet - Referencia rápida para control de versiones" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/library.css">
+    <link rel="icon" type="image/png" href="../assets/img/profile-logo.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header aria-label="Barra superior">
+        <div class="container header-inner">
+            <a class="brand" href="../index.html" aria-label="Inicio">
+                <div class="brand-logo" aria-hidden="true">
+                    <img src="../assets/img/profile-logo.png" alt="Zawut CheatSheet Logo" width="30" height="30" />
+                </div>
+
+                <div class="brand-title">
+                    <strong>Zawut CheatSheet 🚀</strong>
+                    <span>Tu centro de referencia rápida</span>
+                </div>
+            </a>
+
+            <label class="search" aria-label="Buscar en cheatsheets">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7" stroke="#9aa6bd" stroke-width="2" />
+                    <path d="M21 21l-3.5-3.5" stroke="#9aa6bd" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                <input type="search" name="q" placeholder="Buscar comandos, flujos, ejemplos"
+                    autocomplete="off" />
+                <span class="kbd">ALT + K</span>
+            </label>
+
+            <div class="actions">
+                <a class="btn" href="https://github.com/Zawut/zawut.github.io/blob/main/README.md" target="_blank"
+                    aria-label="Documentación">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M6 4h9l3 3v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z" stroke="#9aa6bd"
+                            stroke-width="1.6" />
+                        <path d="M9 8h6M9 12h6M9 16h4" stroke="#9aa6bd" stroke-width="1.6" stroke-linecap="round" />
+                    </svg>
+                    Docs
+                </a>
+                <a class="btn btn-primary" href="https://github.com/Zawut/zawut.github.io" target="_blank"
+                    aria-label="Repositorio en GitHub">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
+                        <path
+                            d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.6 2.1 3.6 1.5v-2c-2.6-.3-5.3-1.3-5.3-5.9 0-1.3.5-2.4 1.2-3.3-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.3 5.9v2c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Header de la Cheatsheet -->
+    <div class="container">
+        <div class="cheatsheet-header">
+            <div class="cheatsheet-title">
+                <div class="icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M2 6.5C2 5.1 3.1 4 4.5 4h15C20.9 4 22 5.1 22 6.5v11c0 1.4-1.1 2.5-2.5 2.5h-15C3.1 20 2 18.9 2 17.5v-11z" stroke="#9a80ff" stroke-width="1.6"/>
+                        <circle cx="6" cy="7" r="1" fill="#9a80ff"/>
+                        <circle cx="9" cy="7" r="1" fill="#9a80ff"/>
+                        <circle cx="12" cy="7" r="1" fill="#9a80ff"/>
+                        <path d="M6 11h12M6 14h12M6 17h8" stroke="#9a80ff" stroke-width="1.6" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h1>Git & GitHub CheatSheet</h1>
+            </div>
+            <p class="cheatsheet-subtitle">Referencia rápida para control de versiones - Comandos esenciales, flujos de trabajo y ejemplos prácticos</p>
+        </div>
+    </div>
+
+    <!-- Navegación -->
+    <div class="cheatsheet-nav">
+        <div class="nav-container">
+            <div class="nav-scroll">
+                <div class="nav-items">
+                    <a href="#config" class="nav-item active">
+                        <i class="fas fa-cog"></i>
+                        <span>Configuración</span>
+                    </a>
+                    <a href="#repos" class="nav-item">
+                        <i class="fas fa-folder"></i>
+                        <span>Repositorios</span>
+                    </a>
+                    <a href="#workflow" class="nav-item">
+                        <i class="fas fa-sync-alt"></i>
+                        <span>Flujo Diario</span>
+                    </a>
+                    <a href="#branches" class="nav-item">
+                        <i class="fas fa-code-branch"></i>
+                        <span>Ramas</span>
+                    </a>
+                    <a href="#info" class="nav-item">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Información</span>
+                    </a>
+                    <a href="#undo" class="nav-item">
+                        <i class="fas fa-undo"></i>
+                        <span>Deshacer</span>
+                    </a>
+                    <a href="#best-practices" class="nav-item">
+                        <i class="fas fa-star"></i>
+                        <span>Buenas Prácticas</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <main class="container cheatsheet-content">
+        <section id="config" class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <h2 class="section-title">CONFIGURACIÓN INICIAL</h2>
+            </div>
+
+            <h3>CONFIGURACIÓN GLOBAL</h3>
+            <div class="code-block">
+                git config --global user.name <span class="string">"Tu Nombre"</span><br>
+                <span class="comment"># Configurar nombre para commits</span><br><br>
+                
+                git config --global user.email <span class="string">"tu@email.com"</span><br>
+                <span class="comment"># Configurar email para commits</span><br><br>
+                
+                git config --global init.defaultBranch main<br>
+                <span class="comment"># Establecer rama principal como "main"</span><br><br>
+                
+                git config --global core.editor <span class="string">"code --wait"</span><br>
+                <span class="comment"># Configurar VS Code como editor por defecto</span>
+            </div>
+
+            <h3>VER CONFIGURACIÓN</h3>
+            <div class="code-block">
+                git config --list<br>
+                <span class="comment"># Ver todas las configuraciones</span><br><br>
+                
+                git config user.name<br>
+                <span class="comment"># Ver nombre configurado</span><br><br>
+                
+                git config user.email<br>
+                <span class="comment"># Ver email configurado</span>
+            </div>
+
+            <div class="example">
+                <div class="example-title">Ejemplo de configuración inicial:</div>
+                <div class="code-block">
+                    <span class="comment"># Configurar Git por primera vez</span><br>
+                    git config --global user.name <span class="string">"Ana García"</span><br>
+                    git config --global user.email <span class="string">"ana@ejemplo.com"</span><br>
+                    git config --global init.defaultBranch main<br><br>
+                    
+                    <span class="comment"># Verificar configuración</span><br>
+                    git config --list
+                </div>
+            </div>
+        </section>
+
+        <section id="repos" class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-folder"></i>
+                </div>
+                <h2 class="section-title">REPOSITORIOS</h2>
+            </div>
+
+            <h3>CREAR Y CLONAR REPOSITORIOS</h3>
+            <div class="code-block">
+                git init<br>
+                <span class="comment"># Inicializar nuevo repositorio LOCAL</span><br><br>
+                
+                git clone https://github.com/usuario/repo.git<br>
+                <span class="comment"># Clonar repositorio existente de GitHub</span><br><br>
+                
+                git clone https://github.com/usuario/repo.git mi-proyecto<br>
+                <span class="comment"># Clonar y renombrar carpeta local</span>
+            </div>
+
+            <h3>CONECTAR CON REMOTO</h3>
+            <div class="code-block">
+                git remote add origin https://github.com/usuario/repo.git<br>
+                <span class="comment"># Conectar repositorio local con GitHub</span><br><br>
+                
+                git remote -v<br>
+                <span class="comment"># Ver URLs de repositorios remotos</span><br><br>
+                
+                git remote set-url origin https://github.com/usuario/nuevo-repo.git<br>
+                <span class="comment"># Cambiar URL del repositorio remoto</span>
+            </div>
+
+            <div class="example">
+                <div class="example-title">Ejemplo: Crear proyecto desde cero y subir a GitHub</div>
+                <div class="code-block">
+                    <span class="comment"># 1. Crear carpeta y archivos del proyecto</span><br>
+                    mkdir mi-proyecto<br>
+                    cd mi-proyecto<br>
+                    <span class="comment"># ... crear archivos ...</span><br><br>
+                    
+                    <span class="comment"># 2. Inicializar repositorio Git</span><br>
+                    git init<br>
+                    git add .<br>
+                    git commit -m <span class="string">"feat: proyecto inicial"</span><br><br>
+                    
+                    <span class="comment"># 3. Conectar con GitHub (crear repo vacío primero en GitHub)</span><br>
+                    git remote add origin https://github.com/tu-usuario/mi-proyecto.git<br>
+                    git push -u origin main
+                </div>
+            </div>
+        </section>
+
+        <section id="workflow" class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+                <h2 class="section-title">FLUJO DE TRABAJO DIARIO</h2>
+            </div>
+
+            <h3>COMANDOS ESENCIALES</h3>
+            <div class="code-block">
+                git status<br>
+                <span class="comment"># Ver estado de archivos modificados/agregados/eliminados</span><br><br>
+                
+                git add .<br>
+                <span class="comment"># Preparar TODOS los archivos para commit</span><br><br>
+                
+                git add archivo.html<br>
+                <span class="comment"># Preparar archivo ESPECÍFICO para commit</span><br><br>
+                
+                git commit -m <span class="string">"mensaje descriptivo"</span><br>
+                <span class="comment"># Guardar cambios LOCALMENTE con descripción</span><br><br>
+                
+                git push origin main<br>
+                <span class="comment"># Subir commits al repositorio REMOTO (GitHub)</span><br><br>
+                
+                git pull origin main<br>
+                <span class="comment"># Descargar cambios del repositorio remoto</span>
+            </div>
+
+            <h3>GITIGNORE</h3>
+            <div class="code-block">
+                <span class="comment"># Crear archivo .gitignore en raíz del proyecto</span><br>
+                node_modules/<br>
+                .env<br>
+                *.log<br>
+                .DS_Store<br>
+                dist/<br>
+                build/
+            </div>
+
+            <div class="example">
+                <div class="example-title">Ejemplo: Flujo de trabajo típico</div>
+                <div class="code-block">
+                    <span class="comment"># 1. Actualizar repositorio local</span><br>
+                    git pull origin main<br><br>
+                    
+                    <span class="comment"># 2. Trabajar en los cambios...</span><br>
+                    <span class="comment"># (modificar archivos, crear nuevos, etc.)</span><br><br>
+                    
+                    <span class="comment"># 3. Revisar cambios</span><br>
+                    git status<br>
+                    git diff<br><br>
+                    
+                    <span class="comment"># 4. Preparar y guardar cambios</span><br>
+                    git add .<br>
+                    git commit -m <span class="string">"feat: agregar funcionalidad de login"</span><br><br>
+                    
+                    <span class="comment"># 5. Subir cambios a GitHub</span><br>
+                    git push origin main
+                </div>
+            </div>
+        </section>
+
+        <section id="branches" class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-code-branch"></i>
+                </div>
+                <h2 class="section-title">TRABAJO CON RAMAS</h2>
+            </div>
+
+            <h3>CREAR Y CAMBIAR DE RAMA</h3>
+            <div class="code-block">
+                git branch<br>
+                <span class="comment"># Listar todas las ramas (* = rama actual)</span><br><br>
+                
+                git branch nueva-rama<br>
+                <span class="comment"># Crear nueva rama</span><br><br>
+                
+                git checkout nombre-rama<br>
+                <span class="comment"># Cambiar a otra rama</span><br><br>
+                
+                git checkout -b nueva-rama<br>
+                <span class="comment"># Crear y cambiar a nueva rama</span><br><br>
+                
+                git switch nombre-rama<br>
+                <span class="comment"># Alternativa moderna para cambiar de rama</span>
+            </div>
+
+            <h3>FUSIONAR RAMAS</h3>
+            <div class="code-block">
+                git merge nombre-rama<br>
+                <span class="comment"># Fusionar rama actual con otra rama</span><br><br>
+                
+                git branch -d nombre-rama<br>
+                <span class="comment"># Eliminar rama local (ya fusionada)</span><br><br>
+                
+                git branch -D nombre-rama<br>
+                <span class="comment"># Forzar eliminación de rama local</span><br><br>
+                
+                git push origin --delete nombre-rama<br>
+                <span class="comment"># Eliminar rama remota</span>
+            </div>
+
+            <div class="example">
+                <div class="example-title">Ejemplo: Trabajar con feature branch</div>
+                <div class="code-block">
+                    <span class="comment"># 1. Crear rama para nueva funcionalidad</span><br>
+                    git checkout -b feature/nuevo-componente<br><br>
+                    
+                    <span class="comment"># 2. Trabajar en la funcionalidad...</span><br>
+                    <span class="comment"># (hacer commits en la rama feature)</span><br><br>
+                    
+                    <span class="comment"># 3. Cambiar a main y actualizar</span><br>
+                    git checkout main<br>
+                    git pull origin main<br><br>
+                    
+                    <span class="comment"># 4. Fusionar la funcionalidad</span><br>
+                    git merge feature/nuevo-componente<br><br>
+                    
+                    <span class="comment"># 5. Subir cambios y limpiar</span><br>
+                    git push origin main<br>
+                    git branch -d feature/nuevo-componente
+                </div>
+            </div>
+        </section>
+
+        <section id="info" class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <h2 class="section-title">INFORMACIÓN Y CONSULTAS</h2>
+            </div>
+
+            <h3>HISTORIAL Y COMPARACIONES</h3>
+            <div class="code-block">
+                git log<br>
+                <span class="comment"># Ver historial de commits (detallado)</span><br><br>
+                
+                git log --oneline<br>
+                <span class="comment"># Ver historial de commits (resumido)</span><br><br>
+                
+                git log --graph --oneline<br>
+                <span class="comment"># Ver historial con gráfico de ramas</span><br><br>
+                
+                git show commit-hash<br>
+                <span class="comment"># Ver cambios específicos de un commit</span>
+            </div>
+
+            <h3>VER CAMBIOS</h3>
+            <div class="code-block">
+                git diff<br>
+                <span class="comment"># Ver diferencias en archivos NO guardados</span><br><br>
+                
+                git diff --staged<br>
+                <span class="comment"># Ver diferencias en archivos PREPARADOS</span><br><br>
+                
+                git diff commit1 commit2<br>
+                <span class="comment"># Comparar entre dos commits</span><br><br>
+                
+                git blame archivo.txt<br>
+                <span class="comment"># Ver quién modificó cada línea</span>
+            </div>
+
+            <div class="example">
+                <div class="example-title">Ejemplo: Investigar cambios recientes</div>
+                <div class="code-block">
+                    <span class="comment"># Ver historial reciente</span><br>
+                    git log --oneline -5<br>
+                    <span class="comment"># (muestra últimos 5 commits)</span><br><br>
+                    
+                    <span class="comment"># Ver cambios del último commit</span><br>
+                    git show<br><br>
+                    
+                    <span class="comment"># Ver qué se va a commitear</span><br>
+                    git diff --staged<br><br>
+                    
+                    <span class="comment"># Ver estado actual</span><br>
+                    git status
+                </div>
+            </div>
+        </section>
+
+        <section id="undo" class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-undo"></i>
+                </div>
+                <h2 class="section-title">DESHACER CAMBIOS</h2>
+            </div>
+
+            <h3>MODIFICAR COMMITS</h3>
+            <div class="code-block">
+                git commit --amend<br>
+                <span class="comment"># Modificar el último commit (mensaje o archivos)</span><br><br>
+                
+                git reset --soft HEAD~1<br>
+                <span class="comment"># Deshacer último commit, mantener cambios en staging</span><br><br>
+                
+                git reset --hard HEAD~1<br>
+                <span class="comment"># Deshacer último commit y ELIMINAR cambios</span><br><br>
+                
+                git revert commit-hash<br>
+                <span class="comment"># Crear nuevo commit que deshace cambios específicos</span>
+            </div>
+
+            <h3>DESCARTAR CAMBIOS</h3>
+            <div class="code-block">
+                git restore archivo.txt<br>
+                <span class="comment"># Descarta cambios en archivo (no guardados)</span><br><br>
+                
+                git restore --staged archivo.txt<br>
+                <span class="comment"># Quitar archivo del área de staging</span><br><br>
+                
+                git clean -fd<br>
+                <span class="comment"># Eliminar archivos no rastreados</span><br><br>
+                
+                git checkout -- archivo.txt<br>
+                <span class="comment"># Forma antigua de descartar cambios</span>
+            </div>
+
+            <div class="example">
+                <div class="example-title">Ejemplo: Corregir error en último commit</div>
+                <div class="code-block">
+                    <span class="comment"># 1. Nos damos cuenta que olvidamos un archivo</span><br>
+                    git add archivo-olvidado.js<br><br>
+                    
+                    <span class="comment"># 2. Agregarlo al último commit</span><br>
+                    git commit --amend<br>
+                    <span class="comment"># (se abre editor para modificar mensaje si es necesario)</span><br><br>
+                    
+                    <span class="comment"># 3. Forzar push si ya se había subido</span><br>
+                    git push --force-with-lease origin main<br>
+                    <span class="comment"># ¡CUIDADO! Solo si trabajas solo en la rama</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="best-practices" class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <h2 class="section-title">BUENAS PRÁCTICAS</h2>
+            </div>
+
+            <h3>MENSAJES DE COMMIT CONVENCIONALES</h3>
+            <div class="code-block">
+                <span class="keyword">feat</span>: agregar funcionalidad de búsqueda<br>
+                <span class="comment"># Nueva funcionalidad</span><br><br>
+                
+                <span class="keyword">fix</span>: corregir error en cálculo de total<br>
+                <span class="comment"># Corrección de error</span><br><br>
+                
+                <span class="keyword">docs</span>: actualizar documentación API<br>
+                <span class="comment"># Cambios en documentación</span><br><br>
+                
+                <span class="keyword">style</span>: formatear código según guía<br>
+                <span class="comment"># Cambios de formato (sin afectar funcionalidad)</span><br><br>
+                
+                <span class="keyword">refactor</span>: reorganizar módulo de autenticación<br>
+                <span class="comment"># Reestructurar código sin cambiar funcionalidad</span><br><br>
+                
+                <span class="keyword">test</span>: agregar tests para componente Button<br>
+                <span class="comment"># Agregar o modificar tests</span><br><br>
+                
+                <span class="keyword">chore</span>: actualizar dependencias<br>
+                <span class="comment"># Tareas de mantenimiento</span>
+            </div>
+
+            <h3>CONSEJOS ESENCIALES</h3>
+            <div class="code-block">
+                <span class="comment"># 1. Hacer commits atómicos (un cambio por commit)</span><br>
+                <span class="comment"># 2. Escribir mensajes claros y descriptivos</span><br>
+                <span class="comment"># 3. Usar .gitignore para archivos temporales/sensibles</span><br>
+                <span class="comment"># 4. Hacer pull antes de push cuando trabajas en equipo</span><br>
+                <span class="comment"># 5. Usar branches para features nuevas</span><br>
+                <span class="comment"># 6. Revisar cambios con git diff antes de commitear</span>
+            </div>
+
+            <div class="example">
+                <div class="example-title">Ejemplo: Flujo profesional completo</div>
+                <div class="code-block">
+                    <span class="comment"># 1. Actualizar main</span><br>
+                    git checkout main<br>
+                    git pull origin main<br><br>
+                    
+                    <span class="comment"># 2. Crear rama para feature</span><br>
+                    git checkout -b feat/user-profile<br><br>
+                    
+                    <span class="comment"># 3. Trabajar en la feature</span><br>
+                    <span class="comment"># ... hacer cambios ...</span><br>
+                    git add .<br>
+                    git commit -m <span class="string">"feat: agregar componente UserProfile"</span><br>
+                    git commit -m <span class="string">"style: ajustar responsive del perfil"</span><br><br>
+                    
+                    <span class="comment"># 4. Fusionar con main</span><br>
+                    git checkout main<br>
+                    git pull origin main<br>
+                    git merge feat/user-profile<br><br>
+                    
+                    <span class="comment"># 5. Subir y limpiar</span><br>
+                    git push origin main<br>
+                    git branch -d feat/user-profile
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-inner">
+            <div class="footer-actions">
+                <!-- Perfil de GitHub -->
+                <a class="btn" href="https://github.com/Zawut" target="_blank" rel="noopener"
+                    aria-label="Perfil de GitHub">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#9aa6bd" aria-hidden="true">
+                        <path
+                            d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.6 2.1 3.6 1.5v-2c-2.6-.3-5.3-1.3-5.3-5.9 0-1.3.5-2.4 1.2-3.3-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.3 5.9v2c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z" />
+                    </svg>
+                    Zawut Dev
+                </a>
+
+                <!-- CheatSheets -->
+                <a class="btn" href="../index.html" aria-label="Volver al inicio">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M4 6h16M4 12h16M4 18h10" stroke="#9aa6bd" stroke-width="1.8" stroke-linecap="round" />
+                    </svg>
+                    Inicio
+                </a>
+
+                <!-- Licencia -->
+                <a class="btn" href="https://github.com/Zawut/zawut.github.io/blob/main/LICENSE" target="_blank"
+                    rel="noopener" aria-label="Licencia">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M6 5h8l4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" stroke="#9aa6bd"
+                            stroke-width="1.8" />
+                        <path d="M8 10h8M8 14h6" stroke="#9aa6bd" stroke-width="1.8" stroke-linecap="round" />
+                    </svg>
+                    Licencia
+                </a>
+            </div>
+
+            <div class="mono">© Zawut CheatSheet — Hecho para devs que no quieren tonterías.</div>
+        </div>
+    </footer>
+    <script src="../assets/js/library.js"></script>
+</body>
+
+</html>
