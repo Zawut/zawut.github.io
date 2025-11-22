@@ -1,0 +1,4 @@
+# LISTA TAREAS
+
+- hacer mobile responsive página index y library
+- cambiar color "x" del buscador elimnar búsqueda

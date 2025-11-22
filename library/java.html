@@ -1,351 +1,232 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Java CheatSheet</title>
-    <link rel="icon" type="image/png" href="assets/img/favicon.png">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Java Zawut CheatSheet</title>
+    <meta name="description" content="Java CheatSheet - Referencia rápida para desarrolladores" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/library.css">
+    <link rel="icon" type="image/png" href="../assets/img/profile-logo.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-    --bg-primary: #0f0f0f;
-    --bg-secondary: #1a1a1a;
-    --text-primary: #e0e0e0;
-    --text-secondary: #a0a0a0;
-    --accent: #3d85c6;
-    --accent-light: #6fa8dc;
-    --border: #333;
-    --code-bg: #2d2d2d;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    line-height: 1.6;
-    padding: 0;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-header {
-    text-align: center;
-    margin-bottom: 40px;
-    padding: 30px 20px 20px;
-    border-bottom: 1px solid var(--border);
-}
-
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    color: var(--accent-light);
-}
-
-.subtitle {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-}
-
-/* Navegacion */
-.nav-container {
-    background: var(--bg-secondary);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid var(--border);
-}
-
-.nav-scroll {
-    display: flex;
-    overflow-x: auto;
-    padding: 0 15px;
-    scrollbar-width: thin;
-    scrollbar-color: var(--accent) var(--bg-secondary);
-}
-
-.nav-scroll::-webkit-scrollbar {
-    height: 6px;
-}
-
-.nav-scroll::-webkit-scrollbar-track {
-    background: var(--bg-secondary);
-}
-
-.nav-scroll::-webkit-scrollbar-thumb {
-    background: var(--accent);
-    border-radius: 3px;
-}
-
-.nav-item {
-    padding: 15px 25px;
-    white-space: nowrap;
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-weight: 500;
-    border-bottom: 2px solid transparent;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.nav-item:hover, .nav-item.active {
-    color: var(--accent-light);
-    border-bottom-color: var(--accent);
-}
-
-.nav-item i {
-    font-size: 0.9rem;
-    width: 20px;
-    margin-right: 2px;
-    text-align: center;
-}
-
-/* Contenido principal */
-.main-content {
-    padding: 20px;
-}
-
-.section {
-    background-color: var(--bg-secondary);
-    border-radius: 8px;
-    padding: 25px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    scroll-margin-top: 80px;
-}
-
-.section-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--border);
-}
-
-.section-icon {
-    font-size: 1.5rem;
-    margin-right: 10px;
-    width: 30px;
-    text-align: center;
-}
-
-.section-title {
-    font-size: 1.5rem;
-    color: var(--accent);
-}
-
-.code-block {
-    background-color: var(--code-bg);
-    border-radius: 6px;
-    padding: 15px;
-    margin: 15px 0;
-    overflow-x: auto;
-    font-family: 'Consolas', 'Monaco', monospace;
-    border-left: 3px solid var(--accent);
-}
-
-.comment {
-    color: #6a9955;
-}
-
-.keyword {
-    color: #569cd6;
-}
-
-.string {
-    color: #ce9178;
-}
-
-.operator {
-    color: #d4d4d4;
-}
-
-.type {
-    color: #4ec9b0;
-}
-
-.number {
-    color: #b5cea8;
-}
-
-.variable {
-    color: #9cdcfe;
-}
-
-.example {
-    background-color: rgba(61, 133, 198, 0.1);
-    border-left: 3px solid var(--accent-light);
-    padding: 10px 15px;
-    margin: 10px 0;
-    border-radius: 4px;
-}
-
-.example-title {
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: var(--accent-light);
-}
-
-h3 {
-    margin: 20px 0 10px 0;
-    color: var(--accent-light);
-}
-
-footer {
-    text-align: center;
-    margin-top: 40px;
-    padding: 30px 20px;
-    border-top: 1px solid var(--border);
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
-@media (max-width: 768px) {
-    body {
-        font-size: 0.85rem;
-    }
-    
-    h1 {
-        font-size: 2rem;
-    }
-    
-    .main-content {
-        padding: 15px;
-    }
-    
-    .section {
-        padding: 15px;
-    }
-    
-    .code-block {
-        font-size: 0.8rem;
-        padding: 12px;
-    }
-    
-    .nav-item {
-        padding: 12px 15px;
-        font-size: 0.9rem;
-    }
-}
-    </style>
 </head>
+
 <body>
-    <header>
-        <h1>Java CheatSheet</h1>
-        <p class="subtitle">Referencia rapida para desarrolladores Java</p>
+    <!-- Header -->
+    <header aria-label="Barra superior">
+        <div class="container header-inner">
+            <a class="brand" href="../index.html" aria-label="Inicio">
+                <div class="brand-logo" aria-hidden="true">
+                    <img src="../assets/img/profile-logo.png" alt="Zawut CheatSheet Logo" width="30" height="30" />
+                </div>
+
+                <div class="brand-title">
+                    <strong>Zawut CheatSheet 🚀</strong>
+                    <span>Tu centro de referencia rápida</span>
+                </div>
+            </a>
+
+            <label class="search" aria-label="Buscar en cheatsheets">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7" stroke="#9aa6bd" stroke-width="2" />
+                    <path d="M21 21l-3.5-3.5" stroke="#9aa6bd" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                <input type="search" name="q" placeholder="Buscar funciones, estructuras, sintaxis"
+                    autocomplete="off" />
+                <span class="kbd">ALT + K</span>
+            </label>
+
+            <div class="actions">
+                <a class="btn" href="https://github.com/Zawut/zawut.github.io/blob/main/README.md" target="_blank"
+                    aria-label="Documentación">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M6 4h9l3 3v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z" stroke="#9aa6bd"
+                            stroke-width="1.6" />
+                        <path d="M9 8h6M9 12h6M9 16h4" stroke="#9aa6bd" stroke-width="1.6" stroke-linecap="round" />
+                    </svg>
+                    Docs
+                </a>
+                <a class="btn btn-primary" href="https://github.com/Zawut/zawut.github.io" target="_blank"
+                    aria-label="Repositorio en GitHub">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
+                        <path
+                            d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.6 2.1 3.6 1.5v-2c-2.6-.3-5.3-1.3-5.3-5.9 0-1.3.5-2.4 1.2-3.3-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.3 5.9v2c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
     </header>
-    
-    <div class="nav-container">
-        <div class="nav-scroll">
-            <a href="#variables" class="nav-item active">
-                <i class="fas fa-code"></i>
-                <span>Variables</span>
-            </a>
-            <a href="#operators" class="nav-item">
-                <i class="fas fa-calculator"></i>
-                <span>Operadores</span>
-            </a>
-            <a href="#conditionals" class="nav-item">
-                <i class="fas fa-code-branch"></i>
-                <span>Condicionales</span>
-            </a>
-            <a href="#loops" class="nav-item">
-                <i class="fas fa-redo"></i>
-                <span>Bucles</span>
-            </a>
-            <a href="#arrays" class="nav-item">
-                <i class="fas fa-layer-group"></i>
-                <span>Arrays</span>
-            </a>
-            <a href="#io" class="nav-item">
-                <i class="fas fa-keyboard"></i>
-                <span>Entrada/Salida</span>
-            </a>
-            <a href="#random" class="nav-item">
-                <i class="fas fa-dice"></i>
-                <span>Math.random</span>
-            </a>
+
+    <!-- Header de la Cheatsheet -->
+    <div class="container">
+        <div class="cheatsheet-header">
+            <div class="cheatsheet-title">
+                <div class="icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <rect x="6" y="2" width="12" height="20" rx="3" stroke="#9a80ff" stroke-width="1.6" />
+                        <circle cx="12" cy="19" r="1" fill="#9a80ff" />
+                    </svg>
+                </div>
+                <h1>Java CheatSheet</h1>
+            </div>
+            <p class="cheatsheet-subtitle">Referencia rápida para desarrolladores Java - Sintaxis, estructuras y
+                ejemplos prácticos</p>
         </div>
     </div>
-    
-    <main class="main-content">
+
+    <!-- Navegación -->
+    <div class="cheatsheet-nav">
+        <div class="nav-container">
+            <div class="nav-scroll">
+                <div class="nav-items">
+                    <a href="#variables" class="nav-item active">
+                        <i class="fas fa-code"></i>
+                        <span>Variables</span>
+                    </a>
+                    <a href="#operators" class="nav-item">
+                        <i class="fas fa-calculator"></i>
+                        <span>Operadores</span>
+                    </a>
+                    <a href="#conditionals" class="nav-item">
+                        <i class="fas fa-code-branch"></i>
+                        <span>Condicionales</span>
+                    </a>
+                    <a href="#loops" class="nav-item">
+                        <i class="fas fa-redo"></i>
+                        <span>Bucles</span>
+                    </a>
+                    <a href="#arrays" class="nav-item">
+                        <i class="fas fa-layer-group"></i>
+                        <span>Arrays</span>
+                    </a>
+                    <a href="#io" class="nav-item">
+                        <i class="fas fa-keyboard"></i>
+                        <span>Entrada/Salida</span>
+                    </a>
+                    <a href="#random" class="nav-item">
+                        <i class="fas fa-dice"></i>
+                        <span>Math Random</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <main class="container cheatsheet-content">
         <section id="variables" class="section">
             <div class="section-header">
-                <span class="section-icon"><i class="fas fa-code"></i></span>
+                <div class="section-icon">
+                    <i class="fas fa-code"></i>
+                </div>
                 <h2 class="section-title">VARIABLES Y TIPOS DE DATOS</h2>
             </div>
-            
+
             <div class="code-block">
-                <span class="keyword">int</span>   <span class="comment">// NUMERO ENTERO</span><br>
-                <span class="keyword">float</span>  <span class="comment">// DECIMAL SIMPLE</span><br>
+                <span class="keyword">int</span> <span class="comment">// NUMERO ENTERO</span><br>
+                <span class="keyword">float</span> <span class="comment">// DECIMAL SIMPLE</span><br>
                 <span class="keyword">double</span> <span class="comment">// DECIMAL PRECISO</span><br>
-                <span class="keyword">char</span>   <span class="comment">// UN SOLO CARACTER</span><br>
+                <span class="keyword">char</span> <span class="comment">// UN SOLO CARACTER</span><br>
                 <span class="keyword">boolean</span> <span class="comment">// VERDADERO O FALSO</span><br>
-                <span class="type">String</span>  <span class="comment">// CADENA DE TEXTO</span>
+                <span class="type">String</span> <span class="comment">// CADENA DE TEXTO</span>
+            </div>
+
+            <h3>CONSTANTES</h3>
+            <div class="code-block">
+                <span class="keyword">final</span> <span class="keyword">int</span> MAXIMO = <span
+                    class="number">100</span>; <span class="comment">// CONSTANTE NUMÉRICA</span><br>
+                <span class="keyword">final</span> <span class="type">String</span> NOMBRE = <span
+                    class="string">"Juan"</span>; <span class="comment">// CONSTANTE DE TEXTO</span><br>
+                <span class="keyword">final</span> <span class="keyword">double</span> PI = <span
+                    class="number">3.1416</span>; <span class="comment">// CONSTANTE DECIMAL</span>
             </div>
         </section>
-        
+
         <section id="operators" class="section">
             <div class="section-header">
-                <span class="section-icon"><i class="fas fa-calculator"></i></span>
+                <div class="section-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
                 <h2 class="section-title">OPERADORES</h2>
             </div>
-            
+
             <h3>ARITMETICOS</h3>
             <div class="code-block">
-                a <span class="operator">+</span> b    <span class="comment">// suma</span><br>
-                a <span class="operator">-</span> b    <span class="comment">// resta</span><br>
-                a <span class="operator">*</span> b    <span class="comment">// multiplicacion</span><br>
-                a <span class="operator">/</span> b    <span class="comment">// division</span><br>
-                a <span class="operator">%</span> b    <span class="comment">// resto</span>
+                a <span class="operator">+</span> b <span class="comment">// suma</span><br>
+                a <span class="operator">-</span> b <span class="comment">// resta</span><br>
+                a <span class="operator">*</span> b <span class="comment">// multiplicacion</span><br>
+                a <span class="operator">/</span> b <span class="comment">// division</span><br>
+                a <span class="operator">%</span> b <span class="comment">// resto</span>
             </div>
-            
+
             <h3>RELACIONALES</h3>
             <div class="code-block">
-                a <span class="operator">==</span> b   <span class="comment">// igual</span><br>
-                a <span class="operator">!=</span> b   <span class="comment">// diferente</span><br>
-                a <span class="operator">&gt;</span> b    <span class="comment">// mayor</span><br>
-                a <span class="operator">&lt;</span> b    <span class="comment">// menor</span><br>
-                a <span class="operator">&gt;=</span> b   <span class="comment">// mayor o igual</span><br>
-                a <span class="operator">&lt;=</span> b   <span class="comment">// menor o igual</span>
+                a <span class="operator">==</span> b <span class="comment">// igual</span><br>
+                a <span class="operator">!=</span> b <span class="comment">// diferente</span><br>
+                a <span class="operator">&gt;</span> b <span class="comment">// mayor</span><br>
+                a <span class="operator">&lt;</span> b <span class="comment">// menor</span><br>
+                a <span class="operator">&gt;=</span> b <span class="comment">// mayor o igual</span><br>
+                a <span class="operator">&lt;=</span> b <span class="comment">// menor o igual</span>
             </div>
-            
+
             <h3>LOGICOS</h3>
             <div class="code-block">
-                a <span class="operator">&&</span> b   <span class="comment">// AND (y)</span><br>
-                a <span class="operator">||</span> b   <span class="comment">// OR (o)</span><br>
-                <span class="operator">!</span>a       <span class="comment">// NOT (no)</span>
+                a <span class="operator">&&</span> b <span class="comment">// AND (y)</span><br>
+                a <span class="operator">||</span> b <span class="comment">// OR (o)</span><br>
+                <span class="operator">!</span>a <span class="comment">// NOT (no)</span>
             </div>
-            
+
             <h3>ASIGNACION</h3>
             <div class="code-block">
-                a <span class="operator">+=</span> b   <span class="comment">// a = a + b</span><br>
-                a <span class="operator">-=</span> b   <span class="comment">// a = a - b</span><br>
-                a <span class="operator">*=</span> b   <span class="comment">// a = a * b</span><br>
-                a <span class="operator">/=</span> b   <span class="comment">// a = a / b</span>
+                a <span class="operator">+=</span> b <span class="comment">// a = a + b</span><br>
+                a <span class="operator">-=</span> b <span class="comment">// a = a - b</span><br>
+                a <span class="operator">*=</span> b <span class="comment">// a = a * b</span><br>
+                a <span class="operator">/=</span> b <span class="comment">// a = a / b</span>
             </div>
-            
+
             <h3>INCREMENTO/DECREMENTO</h3>
             <div class="code-block">
-                a<span class="operator">++</span>      <span class="comment">// INCREMENTO</span><br>
-                a<span class="operator">--</span>      <span class="comment">// DECREMENTO</span>
+                a<span class="operator">++</span> <span class="comment">// INCREMENTO</span><br>
+                a<span class="operator">--</span> <span class="comment">// DECREMENTO</span>
+            </div>
+
+            <h3>COMPARACIÓN DE TEXTOS</h3>
+            <div class="code-block">
+                texto1.equals(texto2) <span class="comment">// COMPARAR SI SON IGUALES</span><br>
+                texto1.equalsIgnoreCase(texto2) <span class="comment">// COMPARAR IGNORANDO MAYÚSCULAS</span><br>
+                !texto1.equals(texto2) <span class="comment">// COMPARAR SI SON DIFERENTES</span>
+            </div>
+
+            <div class="example">
+                <div class="example-title">Ejemplo:</div>
+                <div class="code-block">
+                    <span class="type">String</span> opcion = sc.nextLine();<br>
+                    <span class="keyword">if</span> (opcion.equals(<span class="string">"si"</span>)) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"Opción SI
+                        seleccionada"</span>);<br>
+                    } <span class="keyword">else if</span> (opcion.equalsIgnoreCase(<span class="string">"NO"</span>))
+                    {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"Opción NO
+                        seleccionada"</span>);<br>
+                    }
+                </div>
             </div>
         </section>
-        
+
         <section id="conditionals" class="section">
             <div class="section-header">
-                <span class="section-icon"><i class="fas fa-code-branch"></i></span>
+                <div class="section-icon">
+                    <i class="fas fa-code-branch"></i>
+                </div>
                 <h2 class="section-title">ESTRUCTURAS CONDICIONALES</h2>
             </div>
-            
+
             <div class="code-block">
                 <span class="keyword">if</span> (<span class="type">condicion1</span>) {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// CODIGO SI CONDICION1</span><br>
@@ -355,7 +236,7 @@ footer {
                 &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// CODIGO SI NINGUNA</span><br>
                 }
             </div>
-            
+
             <div class="code-block">
                 <span class="keyword">switch</span> (<span class="type">variable</span>) {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">case</span> <span class="type">valor1</span>:<br>
@@ -369,28 +250,33 @@ footer {
                 }
             </div>
         </section>
-        
+
         <section id="loops" class="section">
             <div class="section-header">
-                <span class="section-icon"><i class="fas fa-redo"></i></span>
+                <div class="section-icon">
+                    <i class="fas fa-redo"></i>
+                </div>
                 <h2 class="section-title">ESTRUCTURAS REPETITIVAS (Bucles)</h2>
             </div>
-            
+
             <div class="code-block">
-                <span class="keyword">for</span> (<span class="type">inicio</span>; <span class="type">condicion</span>; <span class="type">incremento</span>) {<br>
+                <span class="keyword">for</span> (<span class="type">inicio</span>; <span class="type">condicion</span>;
+                <span class="type">incremento</span>) {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// codigo que se repite</span><br>
                 }
             </div>
-            
+
             <div class="example">
                 <div class="example-title">Ejemplo:</div>
                 <div class="code-block">
-                    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i<span class="operator">++</span>) {<br>
+                    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span
+                        class="number">1</span>; i &lt;= <span class="number">5</span>; i<span
+                        class="operator">++</span>) {<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"Numero: "</span> + i);<br>
                     }
                 </div>
             </div>
-            
+
             <div class="code-block">
                 <span class="keyword">while</span> (<span class="type">condicion</span>) {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// codigo que se repite</span><br>
@@ -403,63 +289,125 @@ footer {
                 &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// codigo que se ejecuta al menos una vez</span><br>
                 } <span class="keyword">while</span> (<span class="type">condicion</span>);
             </div>
-            
+
             <div class="example">
                 <div class="example-title">Ejemplo:</div>
                 <div class="code-block">
                     <span class="keyword">int</span> numero;<br>
                     <span class="keyword">do</span> {<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;System.out.print(<span class="string">"Introduce un numero positivo: "</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;System.out.print(<span class="string">"Introduce un numero positivo:
+                        "</span>);<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;numero = scanner.nextInt();<br>
                     } <span class="keyword">while</span> (numero &lt;= <span class="number">0</span>);
                 </div>
             </div>
         </section>
-        
+
         <section id="arrays" class="section">
             <div class="section-header">
-                <span class="section-icon"><i class="fas fa-layer-group"></i></span>
+                <div class="section-icon">
+                    <i class="fas fa-layer-group"></i>
+                </div>
                 <h2 class="section-title">ARRAYS</h2>
             </div>
-            
+
             <h3>ARRAY SIMPLE</h3>
             <div class="code-block">
-                <span class="keyword">int</span>[] numeros = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>];<br>
-                numeros[<span class="number">0</span>] = <span class="number">10</span>;          <span class="comment">// PRIMERA POSICION</span>
+                <span class="keyword">int</span>[] numeros = <span class="keyword">new</span> <span
+                    class="keyword">int</span>[<span class="number">5</span>];<br>
+                numeros[<span class="number">0</span>] = <span class="number">10</span>; <span class="comment">//
+                    PRIMERA POSICIÓN (ÍNDICE 0)</span><br>
+                numeros[<span class="number">1</span>] = <span class="number">20</span>; <span class="comment">//
+                    SEGUNDA POSICIÓN (ÍNDICE 1)</span>
             </div>
-            
-            <h3>RECORRER</h3>
+
+            <h3>RECORRER ARRAY</h3>
             <div class="code-block">
-                <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numeros.length; i<span class="operator">++</span>) {<br>
+                <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i
+                &lt; numeros.length; i<span class="operator">++</span>) {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;System.out.println(numeros[i]);<br>
                 }
             </div>
-            
-            <h3>MATRIZ</h3>
+
+            <h3>MATRIZ (ARRAY BIDIMENSIONAL)</h3>
             <div class="code-block">
-                <span class="keyword">int</span>[][] tabla = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>][<span class="number">3</span>]; <br>
-                tabla[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;          <span class="comment">// FILA 0, COLUMNA 0</span>
+                <span class="comment">// DECLARAR MATRIZ 3x3 (3 FILAS, 3 COLUMNAS)</span><br>
+                <span class="keyword">int</span>[][] matriz = <span class="keyword">new</span> <span
+                    class="keyword">int</span>[<span class="number">3</span>][<span class="number">3</span>];<br><br>
+                <span class="comment">// ASIGNAR VALORES</span><br>
+                matriz[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;
+                <span class="comment">// FILA 0, COLUMNA 0</span><br>
+                matriz[<span class="number">0</span>][<span class="number">1</span>] = <span class="number">2</span>;
+                <span class="comment">// FILA 0, COLUMNA 1</span><br>
+                matriz[<span class="number">0</span>][<span class="number">2</span>] = <span class="number">3</span>;
+                <span class="comment">// FILA 0, COLUMNA 2</span><br>
+                matriz[<span class="number">1</span>][<span class="number">0</span>] = <span class="number">4</span>;
+                <span class="comment">// FILA 1, COLUMNA 0</span>
+            </div>
+
+            <h3>RECORRER MATRIZ</h3>
+            <div class="code-block">
+                <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i
+                &lt; matriz.length; i<span class="operator">++</span>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span>(<span class="keyword">int</span> j = <span
+                    class="number">0</span>; j &lt; matriz[i].length; j<span class="operator">++</span>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.print(matriz[i][j] + <span class="string">"
+                    "</span>);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;System.out.println(); <span class="comment">// SALTO DE LÍNEA POR
+                    FILA</span><br>
+                }
+            </div>
+
+            <div class="example">
+                <div class="example-title">Ejemplo: Tabla de Multiplicar</div>
+                <div class="code-block">
+                    <span class="keyword">int</span>[][] multiplicar = <span class="keyword">new</span> <span
+                        class="keyword">int</span>[<span class="number">3</span>][<span class="number">3</span>];<br>
+                    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;
+                    i &lt; <span class="number">3</span>; i<span class="operator">++</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span>(<span class="keyword">int</span> j = <span
+                        class="number">0</span>; j &lt; <span class="number">3</span>; j<span
+                        class="operator">++</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;multiplicar[i][j] = (i + <span
+                        class="number">1</span>) * (j + <span class="number">1</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    }<br>
+                    <span class="comment">// RESULTADO: [[1,2,3], [2,4,6], [3,6,9]]</span>
+                </div>
             </div>
         </section>
-        
+
         <section id="io" class="section">
             <div class="section-header">
-                <span class="section-icon"><i class="fas fa-keyboard"></i></span>
+                <div class="section-icon">
+                    <i class="fas fa-keyboard"></i>
+                </div>
                 <h2 class="section-title">ENTRADA/SALIDA</h2>
             </div>
-            
+
             <div class="code-block">
-                <span class="type">Scanner</span> sc = <span class="keyword">new</span> <span class="type">Scanner</span>(System.in);<br>
-                <span class="keyword">int</span> numero = sc.nextInt();         <span class="comment">// LEER NUMERO</span><br>
-                <span class="type">String</span> texto = sc.nextLine();      <span class="comment">// LEER TEXTO</span><br><br>
-                System.out.println(<span class="string">"Hola"</span>);        <span class="comment">// IMPRIMIR CON SALTO</span><br>
-                System.out.print(<span class="string">"Mundo"</span>);         <span class="comment">// IMPRIMIR SIN SALTO</span>
+                <span class="keyword">import</span> java.util.Scanner; <span class="comment">// IMPORTAR
+                    SCANNER</span><br><br>
+                <span class="comment">// CREAR OBJETO SCANNER</span><br>
+                <span class="type">Scanner</span> sc = <span class="keyword">new</span> <span
+                    class="type">Scanner</span>(System.in);<br>
+                <span class="keyword">int</span> numero = sc.nextInt(); <span class="comment">// LEER NUMERO</span><br>
+                <span class="type">String</span> texto = sc.nextLine(); <span class="comment">// LEER TEXTO</span><br>
+                <span class="keyword">char</span> caracter = sc.nextLine().charAt(<span class="number">0</span>); <span
+                    class="comment">// LEER CARACTER</span><br><br>
+                System.out.println(<span class="string">"Hola"</span>); <span class="comment">// IMPRIMIR CON
+                    SALTO</span><br>
+                System.out.print(<span class="string">"Mundo"</span>); <span class="comment">// IMPRIMIR SIN
+                    SALTO</span>
             </div>
         </section>
-        
+
         <section id="random" class="section">
             <div class="section-header">
-                <span class="section-icon"><i class="fas fa-dice"></i></span>
+                <div class="section-icon">
+                    <i class="fas fa-dice"></i>
+                </div>
                 <h2 class="section-title">MATH.RANDOM</h2>
             </div>
 
@@ -469,7 +417,9 @@ footer {
 
             <div class="code-block">
                 <div>
-                    <span class="keyword">int</span> resultado = (<span class="keyword">int</span>)(<span class="type">Math</span>.random() * <span class="variable">RANGO</span>) + <span class="variable">INICIO</span>
+                    <span class="keyword">int</span> resultado = (<span class="keyword">int</span>)(<span
+                        class="type">Math</span>.random() * <span class="variable">RANGO</span>) + <span
+                        class="variable">INICIO</span>
                 </div>
             </div>
 
@@ -477,24 +427,65 @@ footer {
                 <div class="example-title">Ejemplos:</div>
                 <div class="code-block">
                     <span class="comment">// NUMERO ENTRE 0 Y 9</span><br>
-                    <span class="keyword">int</span> num = (<span class="keyword">int</span>)(<span class="type">Math</span>.random() * <span class="number">10</span>);<br><br>
-                    
+                    <span class="keyword">int</span> num = (<span class="keyword">int</span>)(<span
+                        class="type">Math</span>.random() * <span class="number">10</span>);<br><br>
+
                     <span class="comment">// NUMERO ENTRE 1 Y 6 (DADO)</span><br>
-                    <span class="keyword">int</span> dado = (<span class="keyword">int</span>)(<span class="type">Math</span>.random() * <span class="number">6</span>) + <span class="number">1</span>;<br><br>
-                    
+                    <span class="keyword">int</span> dado = (<span class="keyword">int</span>)(<span
+                        class="type">Math</span>.random() * <span class="number">6</span>) + <span
+                        class="number">1</span>;<br><br>
+
                     <span class="comment">// NUMERO ENTRE 10 Y 20</span><br>
-                    <span class="keyword">int</span> random = (<span class="keyword">int</span>)(<span class="type">Math</span>.random() * <span class="number">11</span>) + <span class="number">10</span>;<br><br>
-                    
+                    <span class="keyword">int</span> random = (<span class="keyword">int</span>)(<span
+                        class="type">Math</span>.random() * <span class="number">11</span>) + <span
+                        class="number">10</span>;<br><br>
+
                     <span class="comment">// NUMERO ENTRE MIN Y MAX</span><br>
-                    <span class="keyword">int</span> random = (<span class="keyword">int</span>)(<span class="type">Math</span>.random() * (max - min + <span class="number">1</span>)) + min;
+                    <span class="keyword">int</span> random = (<span class="keyword">int</span>)(<span
+                        class="type">Math</span>.random() * (max - min + <span class="number">1</span>)) + min;
                 </div>
             </div>
         </section>
     </main>
-    
+
+    <!-- Footer -->
     <footer>
-        <p>Java CheatSheet &copy; 2025 - Referencia rapida para desarrolladores</p>
+        <div class="container footer-inner">
+            <div class="footer-actions">
+                <!-- Perfil de GitHub -->
+                <a class="btn" href="https://github.com/Zawut" target="_blank" rel="noopener"
+                    aria-label="Perfil de GitHub">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#9aa6bd" aria-hidden="true">
+                        <path
+                            d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.6 2.1 3.6 1.5v-2c-2.6-.3-5.3-1.3-5.3-5.9 0-1.3.5-2.4 1.2-3.3-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.3 5.9v2c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z" />
+                    </svg>
+                    Zawut Dev
+                </a>
+
+                <!-- CheatSheets -->
+                <a class="btn" href="../index.html" aria-label="Volver al inicio">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M4 6h16M4 12h16M4 18h10" stroke="#9aa6bd" stroke-width="1.8" stroke-linecap="round" />
+                    </svg>
+                    Inicio
+                </a>
+
+                <!-- Licencia -->
+                <a class="btn" href="https://github.com/Zawut/zawut.github.io/blob/main/LICENSE" target="_blank"
+                    rel="noopener" aria-label="Licencia">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M6 5h8l4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" stroke="#9aa6bd"
+                            stroke-width="1.8" />
+                        <path d="M8 10h8M8 14h6" stroke="#9aa6bd" stroke-width="1.8" stroke-linecap="round" />
+                    </svg>
+                    Licencia
+                </a>
+            </div>
+
+            <div class="mono">© Zawut CheatSheet — Hecho para devs que no quieren tonterías.</div>
+        </div>
     </footer>
-    <script src="assets/js/script.js"></script>
+    <script src="../assets/js/library.js"></script>
 </body>
+
 </html>
